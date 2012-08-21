@@ -9,9 +9,9 @@ var fs = require("fs"),
 	extract = /<a href="\/ticket\/(\d+)" title="View ticket">(.*?)<[^"]+"component">\s*(\S+)/g;
 
 var opts = {
-	version: "1.6.3 RC 1",
-	short_version: "1.6.3rc1",
-	final_version: "1.6.3",
+	version: "1.8",
+	short_version: "1.8",
+	final_version: "1.8",
 	categories: []
 };
 
@@ -19,7 +19,7 @@ http.request({
 	host: "bugs.jquery.com",
 	port: 80,
 	method: "GET",
-	path: "/query?status=closed&resolution=fixed&component=!web&order=component&milestone=" + opts.final_version
+	path: "/query?status=closed&resolution=fixed&max=400&component=!web&order=component&milestone=" + opts.final_version
 }, function (res) {
 	var data = [];
 
